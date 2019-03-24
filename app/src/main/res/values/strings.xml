@@ -1,0 +1,320 @@
+<resources>
+    <string name="app_name">Формулы по физике</string>
+    <string name="descriptionBtnDelete">Стирает один символ</string>
+    <string name="descriptionBtnOk">Праверяет правильность формулы</string>
+    <string name="itemAbout">O приложении</string>
+    <string name="itemPrivacy_policy">Политика конфиденциальности</string>
+    <string name="tvAbout">Данное приложение предназначено для помощи в запоминании формул по физике.
+        Рекомендуется использовать его в паре с учебником или обучающими курсами.
+        Так как здесь не объясняются, как значения букв, так и Физических законов.
+        \n\nIcon designed by Dimi Kazak from Flaticon
+        \n\n© Zelyder,2018</string>
+    <string name="noConnection">Включите интернет для загрузки формул.</string>
+    <string name="noElements">Вы удалили все формулы из этого раздела.</string>
+    <string name="speed" translatable="false">υ</string>
+    <string name="distance" translatable="false">S</string>
+    <string name="time" translatable="false">t</string>
+    <string name="acceleration" translatable="false">a</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="x" translatable="false">x</string>
+    <string name="acceleration_of_gravity" translatable="false">g</string>
+    <string name="height" translatable="false">h</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="square" translatable="false">²</string>
+    <string name="delta" translatable="false">Δ</string>
+    <string name="sin_a" translatable="false">sinα</string>
+    <string name="sin_phi" translatable="false">sinφ</string>
+    <string name="cos_a" translatable="false">cosα</string>
+    <string name="gamma" translatable="false">Γ</string>
+    <string name="omega" translatable="false">ω</string>
+    <string name="Phi" translatable="false">φ</string>
+    <string name="Period" translatable="false">T</string>
+    <string name="N" translatable="false">N</string>
+    <string name="R" translatable="false">R</string>
+    <string name="pi" translatable="false">π</string>
+    <string name="Frequency" translatable="false">ν</string>
+    <string name="Force" translatable="false">F</string>
+    <string name="mass" translatable="false">m</string>
+    <string name="k" translatable="false">k</string>
+    <string name="mu" translatable="false">μ</string>
+    <string name="G" translatable="false">G</string>
+    <string name="M" translatable="false">M</string>
+    <string name="radius" translatable="false">r</string>
+    <string name="momentum" translatable="false">p</string>
+    <string name="amount" translatable="false">∑</string>
+    <string name="diameter" translatable="false">d</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="momentOfInertia" translatable="false">J</string>
+    <string name="density" translatable="false">ρ</string>
+    <string name="volume" translatable="false">V</string>
+    <string name="work" translatable="false">A</string>
+    <string name="power" translatable="false">P</string>
+    <string name="ECE" translatable="false">η</string>
+    <string name="energy" translatable="false">E</string>
+    <string name="concentration" translatable="false">n</string>
+    <string name="constanta" translatable="false">const</string>
+    <string name="heat" translatable="false">Q</string>
+    <string name="internal_energy" translatable="false">U</string>
+    <string name="lambda" translatable="false">λ</string>
+    <string name="specific_heat" translatable="false">c</string>
+    <string name="L" translatable="false">L</string>
+    <string name="charge" translatable="false">q</string>
+    <string name="electConst" translatable="false">e</string>
+    <string name="electric_capacity" translatable="false">C</string>
+    <string name="epsilon" translatable="false">ε</string>
+    <string name="energyOfCapacitor" translatable="false">W</string>
+    <string name="amperage" translatable="false">I</string>
+    <string name="length" translatable="false">ℓ</string>
+    <string name="magneticInduction" translatable="false">B</string>
+    <string name="magneticFlow" translatable="false">Φ</string>
+    <string name="X" translatable="false">X</string>
+    <string name="Z" translatable="false">Z</string>
+    <string name="D" translatable="false">D</string>
+    <string name="f" translatable="false">f</string>
+    <string name="H" translatable="false">H</string>
+    <string name="retardingStress" translatable="false">U</string>
+    <string name="BigOmega" translatable="false">Ω</string>
+    <string name="tau" translatable="false">τ</string>
+
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_tabbed" translatable="false">TabbedActivity</string>
+    <string name="tab_text_1">Тест</string>
+    <string name="tab_text_2">Правильные формулы</string>
+    <string name="action_settings">Настройки</string>
+    <string name="itemFavorites">Избранные формулы</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-6870351970405478/3417958655</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <string name="pref_cb_dark_style">Тёмная тема</string>
+    <string name="pref_cb_dark_style_summary">Приложение в тёмных тонах.</string>
+    <string name="pref_sw_consider_on">Учитывать количество попыток</string>
+    <string name="pref_sw_consider_off">Не Учитывать количество попыток</string>
+    <string name="pref_sw_consider_summary_on">За каждый не правильный ответ будут сниматься баллы.</string>
+    <string name="pref_sw_consider_summary_off">Если вы ввели правильную формулу, вам будет зачислен полный балл. При этом неважно количество затраченных попыток.</string>
+    <string name="pref_countTry">Количество попыток</string>
+
+
+    <string-array name="pref_array_countTry">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string name="helpStatics">J – Момент инерции [кг•м²]\n
+    m – Масса [кг] \n
+    r – Расстояние [м] \n
+    M – Момент силы [Н•м] \n
+    F – Сила [Н] \n
+    d – Плечо силы [м]
+
+    </string>
+    
+    <string name="helpKinematics">S – Расстояние [м]\n
+	υ – Скорость [м/с]\n
+	t – Время [с]\n
+	h – Высота [м]\n
+	g – Ускорение свободного падения [м/с²] = 10 (в ЕГЭ)\n
+	x – Координата\n
+	a – Ускорение [м/с²]\n
+	T – Период [c⁻¹]\n
+	ω – Угловая скорость [рад/с]\n
+	π - Число пи = 3,14\n
+	φ – Угол\n
+	R – Радиус [м]\n
+	N – Количество оборотов
+    </string>
+    
+    <string name="helpDynamics">F – Сила [H] \n
+    m – Масса [кг] \n
+    a – Ускорение [м/с²]\n
+    p – Импульс [кг•м/с] \n
+    t – Время [с] \n
+    G – Гравитационная постоянная = 6,7•10⁻¹¹ [Н•м²/кг²]\n
+    R – Радиус [м]\n
+    g – Ускорение свободного падения [м/с²] = 10 (в ЕГЭ)\n
+    υ – Скорость [м/с]\n
+    μ – Коэффициент трения\n
+    N – Сила реакции опоры\n
+    k – Коэффициент жесткости [Н/м] \n
+    x – Удлинение (сжатие) тела\n
+    h – Высота [м]\n
+    M – Масса [кг]
+    </string>
+    
+    <string name="helpHydroStatics">p – Давление [Па]\n
+    F – Сила [H] \n
+    S – Площадь [м²]\n
+    ρ – Плотность жидкости [кг/м³]\n
+    g – Ускорение свободного падения [м/с²] = 10 (в ЕГЭ)\n
+    h – Высота [м]\n
+    V – Объём [м³]
+    </string>
+    
+    <string name="helpEnergy">N – Мощность [Вт]
+    F – Сила [H]\n
+    υ – Скорость [м/с]\n
+    A – Работа [Дж]
+    S – Расстояние [м]\n
+    t – Время [с]\n
+    E – Энергия [Дж]
+    k – Коэффициент жесткости [Н/м] \n
+    x – Удлинение (сжатие) тела\n
+    m – Масса [кг] \n
+    g – Ускорение свободного падения [м/с²] = 10 (в ЕГЭ)\n
+    h – Высота [м]\n
+    </string>
+
+    <string name="helpMolecularPhysics">p – Давление [Па]\n
+    n – Концентрация молекул\n
+    E – Энергия [Дж]\n
+    k – Постоянная Больцмана = 1,38•10⁻²³ [Дж/К]\n
+    T – Температура [K]\n
+    V – Объём [м³]\n
+    ν – Количество вещества [моль]\n
+    m – Масса [кг]\n
+    M – Молярная масса [г/моль]\n
+    N – Количество молекул\n
+    Nₐ - Постоянная Авогадро = 6•10²³ [моль⁻¹]\n
+    υ – Скорость [м/с]\n
+    ρ – Плотность [кг/м³]\n
+    R –  Универсальная газовая постоянная = 8,31 [Дж/(моль•К)]
+    </string>
+
+    <string name="helpThermodynamics">
+U – Внутренняя энергия [Дж]\n
+A – Работа [Дж]\n
+V – Объём [м³]\n
+ν – Количество вещества [моль]\n
+R – Универсальная газовая постоянная = 8,31 [Дж/(моль•К)]\n
+T – Абсолютная температура [K]\n
+η – Коэффициент полезного действия\n
+Q – Количество теплоты [Дж]\n
+m – Масса [кг]\n
+L – Коэффициент парообразования\n
+λ – Коэффициент плавления\n
+q – Удельная теплота сгорания топлива [Дж/кг]\n
+c – Удельная теплоёмкость вещества [Дж/(кг•К)]\n
+t – Температура [°C]\n
+φ - Влажность воздуха\n
+p – Давление [Па]\n
+p₀ – Давление насыщенного водяного пара [Па]
+    </string>
+
+    <string name="helpElectroStatics">
+F – Сила [H]\n
+ε₀ – Электрическая постоянная = 8,85•10⁻¹²[Ф/м] \n
+ε – Диэлектрическая проницаемость [Ф/м] \n
+k – Коэффициент пропорциональности = 9•10⁹ = 1/(4•π•ε₀)\n
+q – Заряд [Кл] \n
+r – Расстояние между зарядами [м] \n
+E – Напряжённость электрического поля [В/м] \n
+S – Площадь [м²]\n
+φ – Потенциал точечного заряда [В] \n
+W – Энергия [Дж] \n
+A – Работа [Дж] \n
+d – Расстояние [м] \n
+U – Напряжение [В] \n
+C – Электроёмкость [Ф]
+    </string>
+
+    <string name="helpConstantCurrent">Q – Количество теплоты [Дж]\n
+I – Сила тока [А] \n
+U – Напряжение [В] \n
+R – Сопротивление [Ом] \n
+t – Время [с] \n
+ε – ЭДС (Электродвижущая сила) источника тока [В] \n
+r – Внутреннее сопротивление источника тока [Ом] \n
+P – Мощность электрического тока [Вт] \n
+A – Работа [Дж]\n
+ρ – Удельное сопротивление вещества [Ом•м]\n
+ℓ - Длинна проводника [м]\n
+S – Площадь поперечного сечения [м²]
+    </string>
+
+    <string name="helpMagneticField">
+ε – ЭДС (Электродвижущая сила) индукции [В] \nΦ – Магнитный поток [Вб] \n
+t – Время [с]\n
+L – Индуктивность [Гн] \n
+I – Сила тока [А] \n
+B – Модуль вектора магнитной индукции [Тл] \n
+S – Площадь, ограниченная контуром [м²]\n
+F – Сила [H]\n
+ℓ - Длинна проводника [м]\n
+q – Заряд [Кл] \n
+υ – Скорость [м/с]\n
+W – Энергия [Дж]
+    </string>
+
+    <string name="helpMechanicalVibrations">λ – Длинна волны [м] \n
+υ – Скорость [м/с]\n
+T – Период [c⁻¹]\n
+ν – частота колебаний [Гц] \n
+π - Число пи = 3,14\n
+ℓ - Длинна [м]\n
+g – Ускорение свободного падения [м/с²] = 10 (в ЕГЭ)\n
+m – Масса [кг] \n
+k – Коэффициент жесткости [Н/м] \n
+ω – Циклическая частота колебаний [рад/с]
+    </string>
+
+    <string name="helpElectromagneticOscillations">X – Реактивное сопротивление [Ом] \n
+ω – Угловая частота [рад/с] \n
+C – Электроёмкость [Ф] \n
+L – Индуктивность [Гн] \n
+T – Период [c⁻¹]\n
+W – Энергия [Дж] \n
+I – Сила тока [А] \n
+q – Заряд [Кл]
+    </string>
+
+    <string name="helpOptics">n – Показатель преломления\n
+c – Скорость света = 3•10⁸ [м/с] \n
+υ – Скорость [м/с]\n
+D – Оптическая сила линзы [дптр] \n
+F – Фокусное расстояние линзы [м] \n
+Γ – Увеличение линзы\n
+f – Расстояние от линзы до изображения [м] \n
+d – Расстояние от линзы до предмета [м] \n
+H – Размер изображения [м] \n
+h – Размер предмета [м] \n
+Δ – Условие интерференционного максимума (минимума) \n
+k = (0,1,2,…) \n
+λ – Длинна волны [м]
+    </string>
+    
+    <string name="helpSto">ℓ - Длинна [м]\n
+m – Масса [кг]\n
+υ – Скорость [м/с]\n
+c – Скорость света = 3•10⁸ [м/с] \n
+τ – Время [с]
+E – Энергия [Дж] \n
+    </string>
+
+    <string name="helpQuantumPhysics">p – Импульс [кг•м/с] \n
+h – Постоянная Планка = 6,6•10⁻³⁴ [Дж•с]\n
+ν – частота колебаний [Гц] \n
+c – Скорость света = 3•10⁸ [м/с] \n
+υ – Скорость [м/с]\n
+λ – Длинна волны [м] \n
+mₑ – Масса электрона = 9,1•10⁻³¹ [кг]\n
+I – Интенсивность излучения [Вт/м²]\n
+N – Мощность излучения [Вт]\n
+S – Площадь [м²]\n
+A – Работа выхода [эВ]\n
+E – Энергия [эВ] \n
+e – Заряд электрона = 1,6•10⁻¹⁹ [Кл]\n
+U₃ – Задерживающее напряжение [В]\n
+W – Энергия излучения [эВ]\n
+n – Число фотонов
+    </string>
+
+</resources>

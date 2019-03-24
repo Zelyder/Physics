@@ -1,0 +1,226 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zelyder.physics.Fragments.KeyboardElectrostatics">
+
+    <ImageButton
+        android:id="@+id/btnElectrostaticsDelete"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/descriptionBtnDelete"/>
+    <Button
+        android:id="@+id/btnElectrostaticsMinus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsDelta"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/delta"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <ImageButton
+        android:id="@+id/btnElectrostaticsOk"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:background="@drawable/ripple_ok_button"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        android:contentDescription="@string/descriptionBtnOk"/>
+    <Button
+        android:id="@+id/btnElectrostaticsForce"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Force"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsK"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/k"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsCharge"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/charge"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsSquare"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/square"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsRadius"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/radius"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsEnergy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/energy"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsInternal_energy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/internal_energy"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnElectrostaticsTwo"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/two"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsD"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/diameter"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsElectric_capacity"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/electric_capacity"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsEpsilon"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/epsilon"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsPhi"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Phi"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsN"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/N"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsEnergyOfCapacitor"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/energyOfCapacitor"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsWork"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/work"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnElectrostaticsArea"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/distance"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+</GridLayout>

@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="106dp"
+    android:height="366dp"
+    android:viewportWidth="106"
+    android:viewportHeight="366">
+    <path
+        android:fillColor="?attr/textColor"
+        android:name="Фигура 3"
+        android:pathData="m0 310 28 -13 30 54 25 -351h23v10h-14l-26 354l-4 2l-4 -2l-34 -57l-21 7l-3 -4z" />
+    <path
+        android:name="Фигура 3"
+        android:pathData="m105 1v8h-13.93l-0.07 0.93l-25.96 353.43l-3.04 1.52l-3.29 -1.65l-33.85 -56.75l-0.41 -0.69l-0.76 0.25l-20.32 6.77l-1.83 -2.44l26.04 -12.09l29.55 53.19l1.63 2.94l0.24 -3.35l24.93 -350.07zm-22 -1 -25 351 -30 -54 -28 13 3 4 21 -7 34 57 4 2 4 -2 26 -354h14v-10z"
+        android:fillColor="?attr/textColor" />
+</vector>

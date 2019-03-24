@@ -1,0 +1,270 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zelyder.physics.Fragments.KeyboardQuantumPhysics">
+
+    <ImageButton
+        android:id="@+id/btnQuantumPhysicsDelete"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/descriptionBtnDelete"/>
+    <Button
+        android:id="@+id/btnQuantumPhysicsPlus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/plus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsMinus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <ImageButton
+        android:id="@+id/btnQuantumPhysicsOk"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:background="@drawable/ripple_ok_button"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        android:contentDescription="@string/descriptionBtnOk"/>
+    <Button
+        android:id="@+id/btnQuantumPhysicsEnergy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/energy"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsPlanckConstant"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/height"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsFrequency"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Frequency"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsDelta"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/delta"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsMomentum"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/momentum"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsSpeedOfLight"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/specific_heat"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsMass"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/mass"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsSquare"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/square"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsSpeed"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/speed"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsWork"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/work"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsLambda"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/lambda"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsTwo"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/two"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsRetardingStress"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/retardingStress"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsElectConst"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/electConst"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsRadiationEnergy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/energyOfCapacitor"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsAmount"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/concentration"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsN"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/N"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsTime"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/time"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsIntensity"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/amperage"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnQuantumPhysicsArea"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/distance"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+
+</GridLayout>

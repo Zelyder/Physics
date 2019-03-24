@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/equally"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif"
+        android:textColor="?attr/textColor"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/beforeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif"
+        android:textAllCaps="false"
+        android:textColor="?attr/textColor"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/equally"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/rootBig"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/rootLineBig"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?attr/textColor"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/nominatorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="serif"
+            android:textAlignment="center"
+            android:textColor="?attr/textColor"
+            android:textSize="35sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?attr/textColor" />
+
+        <TextView
+            android:id="@+id/denominatorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="serif"
+            android:gravity="start"
+            android:textAlignment="center"
+            android:textColor="?attr/textColor"
+            android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rootSmall"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/rootLineSmall"
+            android:layout_width="match_parent"
+            android:layout_height="2.5dp"
+            android:background="?attr/textColor"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/postTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="?attr/textColor"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/rootSmall"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:contentDescription="TODO"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+        app:srcCompat="@drawable/ic_root_small" />
+
+    <ImageView
+        android:id="@+id/rootBig"
+        android:layout_width="29dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/beforeTv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_root_big" />
+
+</android.support.constraint.ConstraintLayout>

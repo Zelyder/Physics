@@ -1,0 +1,271 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zelyder.physics.Fragments.KeyboardThermodynamics">
+
+    <ImageButton
+        android:id="@+id/btnThermodynamicsDelete"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/descriptionBtnDelete"/>
+    <Button
+        android:id="@+id/btnThermodynamicsPlus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/plus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsMinus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <ImageButton
+        android:id="@+id/btnThermodynamicsOk"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:background="@drawable/ripple_ok_button"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        android:contentDescription="@string/descriptionBtnOk"/>
+
+    <Button
+        android:id="@+id/btnThermodynamicsHeat"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/heat"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsInternal_energy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/internal_energy"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsWork"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/work"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsDelta"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/delta"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsFrequency"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Frequency"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsR"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/R"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsTemperature"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Period"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsTwo"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/two"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsSpecific_heat"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/specific_heat"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsMass"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/mass"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsTime"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/time"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsThree"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/three"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsLambda"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/lambda"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsL"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/L"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsCharge"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/charge"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsFive"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/five"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsPressure"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/momentum"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsVolume"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/volume"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsECE"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/ECE"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnThermodynamicsPhi"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="5"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Phi"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+
+</GridLayout>

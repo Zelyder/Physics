@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.zelyder.physics.activity.TabbedActivity">
+     <item
+          android:id="@+id/itemSettings"
+          android:orderInCategory="100"
+          android:title="@string/action_settings"
+          app:showAsAction="never" />
+    <item
+        android:id="@+id/itemAbout"
+        android:title="@string/itemAbout"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/itemPrivacy_policy"
+        android:title="@string/itemPrivacy_policy"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/itemFavorites"
+        android:title="@string/itemFavorites"
+        android:icon="@drawable/ic_star_white_24dp"
+        app:showAsAction="ifRoom"/>
+</menu>

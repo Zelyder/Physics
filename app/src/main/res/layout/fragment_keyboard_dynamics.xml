@@ -1,0 +1,247 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zelyder.physics.Fragments.KeyboardDynamics">
+
+    <ImageButton
+        android:id="@+id/btnDynamicsDelete"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:contentDescription="@string/descriptionBtnDelete"
+        app:srcCompat="@drawable/ic_delete" />
+
+    <Button
+        android:id="@+id/btnDynamicsPlus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/plus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsDelta"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/delta"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/btnDynamicsOk"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:adjustViewBounds="false"
+        android:background="@drawable/ripple_ok_button"
+        android:contentDescription="@string/descriptionBtnOk"
+        android:cropToPadding="false"
+        app:srcCompat="@drawable/ic_check_black_24dp" />
+
+    <Button
+        android:id="@+id/btnDynamicsForce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/Force"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsMass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/mass"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsAcceleration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/acceleration"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsSquare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/square"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/k"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/x"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsMu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/mu"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/N"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/G"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/M"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/time"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsFall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="3"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/acceleration_of_gravity"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/R"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/height"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/speed"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnDynamicsMomentum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="4"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/momentum"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+
+</GridLayout>

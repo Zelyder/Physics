@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "202058820696",
+    "firebase_url": "https://physics-4509b.firebaseio.com",
+    "project_id": "physics-4509b",
+    "storage_bucket": "physics-4509b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202058820696:android:8dc6a89ab9f7720b",
+        "android_client_info": {
+          "package_name": "com.zelyder.physics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202058820696-ur93hdudmni85j4ugstbnfof0up6a4ko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zelyder.physics",
+            "certificate_hash": "cf125758df606b09ef503773da157f76207a2ef0"
+          }
+        },
+        {
+          "client_id": "202058820696-0pqc2mdgr9p7a9qko5tmqchbonuupnvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM214FmXuliGyTaeWM1XCeMorArQHl3qA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202058820696-0pqc2mdgr9p7a9qko5tmqchbonuupnvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

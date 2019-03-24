@@ -1,0 +1,136 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zelyder.physics.Fragments.KeyboardSTO">
+
+    <ImageButton
+        android:id="@+id/btnSTODelete"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        app:srcCompat="@drawable/ic_delete"
+        android:contentDescription="@string/descriptionBtnDelete"/>
+    <Button
+        android:id="@+id/btnSTOPlus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/plus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOMinus"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/minus"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <ImageButton
+        android:id="@+id/btnSTOOk"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="0"
+        android:background="@drawable/ripple_ok_button"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        android:contentDescription="@string/descriptionBtnOk"/>
+    <Button
+        android:id="@+id/btnSTOEnergy"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/energy"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOMass"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/mass"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOSpeedOfLight"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/specific_heat"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOSquare"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/square"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOTau"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/tau"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOSpeed"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="1"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/speed"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOLength"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="2"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/length"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/btnSTOOne"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
+        android:layout_column="3"
+        android:layout_row="2"
+        android:background="@drawable/ripple_button"
+        android:fontFamily="serif"
+        android:text="@string/one"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+</GridLayout>

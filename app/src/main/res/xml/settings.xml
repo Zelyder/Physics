@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="cb_pref_dark_style"
+        android:summary="@string/pref_cb_dark_style_summary"
+        android:textColor="?attr/textColor"
+        android:title="@string/pref_cb_dark_style" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="pref_sw_consider"
+        android:summaryOff="@string/pref_sw_consider_summary_off"
+        android:summaryOn="@string/pref_sw_consider_summary_on"
+        android:switchTextOff="@string/pref_sw_consider_off"
+        android:switchTextOn="@string/pref_sw_consider_on"
+        android:title="@string/pref_sw_consider_off" />
+    <ListPreference
+        android:defaultValue="3"
+        android:entries="@array/pref_array_countTry"
+        android:entryValues="@array/pref_array_countTry"
+        android:key="pref_list_count_try"
+        android:title="@string/pref_countTry" />
+</PreferenceScreen>
