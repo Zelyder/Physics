@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.help.CorrectListAdapter;
 import com.zelyder.physics.help.CorrectListCallback;
+import com.zelyder.physics.help.OnGetDataListener;
 import com.zelyder.physics.model.DelFormula;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.physics.model.Formula;
@@ -34,6 +35,7 @@ public class CorrectListActivity extends AppCompatActivity {
     String TAG = "CorrectListActivity";
     RecyclerView recyclerView;
     ArrayList<Formula> listFormulas;
+    ArrayList<Formula> tempListFormulas;
     private Iterator<DataSnapshot> iterable;
     private DatabaseReference myRef;
     private Realm mRealm;
@@ -60,94 +62,104 @@ public class CorrectListActivity extends AppCompatActivity {
 
 
         listFormulas = new ArrayList<>();
+        tempListFormulas = new ArrayList<>();
 
         recyclerView = findViewById(R.id.correctList_recyclerView);
-        setUpDB();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        Log.d("LOL",listFormulas.toString());
-
-        CorrectListAdapter adapter = new CorrectListAdapter(listFormulas, this);
-
-        adapter.setCorrectListCallback(new CorrectListCallback() {
+        setUpDB(new OnGetDataListener() {
             @Override
-            public void liked(int position) {
-                Formula item = listFormulas.get(position);
-                mRealm.beginTransaction();
-                Favorite favorite = mRealm.createObject(Favorite.class);
-                favorite.setSection(getIntent().getStringExtra(FActivity.TITLE));
-                favorite.setName(item.getTitle());
-                favorite.setFormula(item.getFormula());
-                mRealm.commitTransaction();
+            public void onStart() {
+
             }
 
             @Override
-            public void unLiked(int position) {
-                Formula item = listFormulas.get(position);
+            public void onSuccess(DataSnapshot data) {
+                recyclerView.setLayoutManager(new LinearLayoutManager(CorrectListActivity.this));
+                recyclerView.setHasFixedSize(true);
 
-                mRealm.beginTransaction();
-                RealmResults<Favorite> favorites = mRealm.where(Favorite.class)
-                        .equalTo("name", item.getTitle()).findAll();
-                for (int i = favorites.size() - 1; i >= 0; i--) {
-                    if (favorites.get(i) != null) {
-                        favorites.get(i).deleteFromRealm();
+                Log.d("LOL", "listFormulas = " + listFormulas.size());
+
+                CorrectListAdapter adapter = new CorrectListAdapter(listFormulas, CorrectListActivity.this);
+
+                adapter.setCorrectListCallback(new CorrectListCallback() {
+                    @Override
+                    public void liked(int position) {
+                        Formula item = listFormulas.get(position);
+                        mRealm.beginTransaction();
+                        Favorite favorite = mRealm.createObject(Favorite.class);
+                        favorite.setSection(getIntent().getStringExtra(FActivity.TITLE));
+                        favorite.setName(item.getTitle());
+                        favorite.setFormula(item.getFormula());
+                        mRealm.commitTransaction();
                     }
-                }
-                mRealm.commitTransaction();
-            }
 
-            @Override
-            public boolean getLikedState(int position) {
-                Favorite favorite = mRealm.where(Favorite.class)
-                        .equalTo("name",
-                                listFormulas.get(position).getTitle())
-                        .findFirst();
-                return favorite != null;
+                    @Override
+                    public void unLiked(int position) {
+                        Formula item = listFormulas.get(position);
 
-            }
+                        mRealm.beginTransaction();
+                        RealmResults<Favorite> favorites = mRealm.where(Favorite.class)
+                                .equalTo("name", item.getTitle()).findAll();
+                        for (int i = favorites.size() - 1; i >= 0; i--) {
+                            if (favorites.get(i) != null) {
+                                favorites.get(i).deleteFromRealm();
+                            }
+                        }
+                        mRealm.commitTransaction();
+                    }
 
-            @Override
-            public void crossToggle(int position, boolean isDelete) {
-                Formula item = listFormulas.get(position);
-                if(isDelete){
-                    mRealmForDel.beginTransaction();
-                    DelFormula delFormula = mRealmForDel.createObject(DelFormula.class);
-                    delFormula.setParent(getIntent().getStringExtra(FActivity.TITLE));
-                    delFormula.setName(item.getTitle());
-                    mRealmForDel.commitTransaction();
-                }else {
-                    mRealmForDel.beginTransaction();
-                    RealmResults<DelFormula> delFormulas = mRealmForDel.where(DelFormula.class)
-                            .equalTo("name",
-                                    item.getTitle()).findAll();
-                    for (int i = delFormulas.size() - 1; i >= 0; i--) {
-                        if (delFormulas.get(i) != null) {
-                            delFormulas.get(i).deleteFromRealm();
+                    @Override
+                    public boolean getLikedState(int position) {
+                        Favorite favorite = mRealm.where(Favorite.class)
+                                .equalTo("name",
+                                        listFormulas.get(position).getTitle())
+                                .findFirst();
+                        return favorite != null;
+
+                    }
+
+                    @Override
+                    public void crossToggle(int position, boolean isDelete) {
+                        Formula item = listFormulas.get(position);
+                        if (isDelete) {
+                            mRealmForDel.beginTransaction();
+                            DelFormula delFormula = mRealmForDel.createObject(DelFormula.class);
+                            delFormula.setParent(getIntent().getStringExtra(FActivity.TITLE));
+                            delFormula.setName(item.getTitle());
+                            mRealmForDel.commitTransaction();
+                        } else {
+                            mRealmForDel.beginTransaction();
+                            RealmResults<DelFormula> delFormulas = mRealmForDel.where(DelFormula.class)
+                                    .equalTo("name",
+                                            item.getTitle()).findAll();
+                            for (int i = delFormulas.size() - 1; i >= 0; i--) {
+                                if (delFormulas.get(i) != null) {
+                                    delFormulas.get(i).deleteFromRealm();
+                                }
+                            }
+                            mRealmForDel.commitTransaction();
                         }
                     }
-                    mRealmForDel.commitTransaction();
-                }
+
+                    @Override
+                    public boolean getCrossState(int position) {
+                        DelFormula delFormula = mRealmForDel.where(DelFormula.class)
+                                .equalTo("name",
+                                        listFormulas.get(position).getTitle())
+                                .findFirst();
+                        return delFormula != null;
+                    }
+                });
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
-            public boolean getCrossState(int position) {
-                DelFormula delFormula = mRealmForDel.where(DelFormula.class)
-                        .equalTo("name",
-                                listFormulas.get(position).getTitle())
-                        .findFirst();
-                return delFormula != null;
+            public void onFailed(DatabaseError databaseError) {
+
             }
         });
-        recyclerView.setAdapter(adapter);
-
-
-
-
-
-
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_correct_list, menu);
@@ -160,7 +172,7 @@ public class CorrectListActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.itemHelp:
                 Intent intent = new Intent(this, HelpActivity.class);
-                intent.putExtra(FActivity.TITLE,getIntent().getStringExtra(FActivity.TITLE));
+                intent.putExtra(FActivity.TITLE, getIntent().getStringExtra(FActivity.TITLE));
                 startActivity(intent);
                 break;
         }
@@ -168,26 +180,44 @@ public class CorrectListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void setUpDB() {
+    private void setUpDB(final OnGetDataListener listener) {
+        listener.onStart();
 
         myRef.child(getIntent().getStringExtra(FActivity.TITLE)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                iterable = dataSnapshot.getChildren().iterator();
-                for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
-                    DataSnapshot dataFormula = iterable.next();
-                    Formula formula = new Formula(dataFormula.getKey(), String.valueOf(dataFormula
-                            .getValue()));
-
-                    listFormulas.add(formula);
+                if(dataSnapshot!=null && dataSnapshot.exists()){
+                    iterable = dataSnapshot.getChildren().iterator();
+                    for (int i = 0; i < dataSnapshot.getChildrenCount(); i++) {
+                        DataSnapshot dataFormula = iterable.next();
+                        Formula formula = new Formula(dataFormula.getKey(), String.valueOf(dataFormula
+                                .getValue()));
+                        Log.d("LOL",formula.getFormula());
+                        listFormulas.add(formula);
+                    }
                 }
-
+                listener.onSuccess(dataSnapshot);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w(TAG, "Failed to read value.", databaseError.toException());
+                listener.onFailed(databaseError);
             }
         });
+    }
+
+
+
+    private void setUpTestDB() {
+
+        for (int i = 0; i < 5; i++) {
+
+            Formula formula = new Formula("Test " + i, "a= _ω²R");
+
+            listFormulas.add(formula);
+        }
+
+
     }
 }
