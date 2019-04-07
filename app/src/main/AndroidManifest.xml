@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fullBackupContent="">
+        android:fullBackupContent="@xml/mybackupsche">
         <activity
             android:name="com.zelyder.physics.activity.FActivity"
             android:screenOrientation="portrait"
