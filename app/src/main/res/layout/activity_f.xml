@@ -84,11 +84,11 @@
 
     <com.like.LikeButton
         android:id="@+id/test_star_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:icon_size="25dp"
         app:icon_type="Star"
         app:layout_constraintBottom_toTopOf="@+id/fractionView"
