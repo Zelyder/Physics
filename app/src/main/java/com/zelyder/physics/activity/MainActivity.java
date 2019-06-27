@@ -1,9 +1,11 @@
 package com.zelyder.physics.activity;
 
 import android.app.Service;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -31,11 +33,14 @@ public class MainActivity extends Fragment {
     TextView tvNoConnection;
     RecyclerView recyclerView;
     private AdView mAdView;
+    SharedPreferences preferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                 Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
@@ -43,7 +48,7 @@ public class MainActivity extends Fragment {
 
         mAdView = rootView.findViewById(R.id.adView);
 
-        if(!isConnected()) {
+        if(!isConnected() || preferences.getBoolean(DonationActivity.PREFERENCES_ADS, false)) {
             mAdView.setVisibility(View.GONE);
             mAdView.destroy();
         }else {

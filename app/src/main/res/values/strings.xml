@@ -101,6 +101,7 @@
     <string name="pref_countTry">Количество попыток</string>
 
 
+
     <string-array name="pref_array_countTry">
         <item>1</item>
         <item>2</item>
@@ -117,7 +118,7 @@
     d – Плечо силы [м]
 
     </string>
-    
+
     <string name="helpKinematics">S – Расстояние [м]\n
 	υ – Скорость [м/с]\n
 	t – Время [с]\n
@@ -132,7 +133,7 @@
 	R – Радиус [м]\n
 	N – Количество оборотов
     </string>
-    
+
     <string name="helpDynamics">F – Сила [H] \n
     m – Масса [кг] \n
     a – Ускорение [м/с²]\n
@@ -149,7 +150,7 @@
     h – Высота [м]\n
     M – Масса [кг]
     </string>
-    
+
     <string name="helpHydroStatics">p – Давление [Па]\n
     F – Сила [H] \n
     S – Площадь [м²]\n
@@ -158,7 +159,7 @@
     h – Высота [м]\n
     V – Объём [м³]
     </string>
-    
+
     <string name="helpEnergy">N – Мощность [Вт]
     F – Сила [H]\n
     υ – Скорость [м/с]\n
@@ -290,7 +291,7 @@ h – Размер предмета [м] \n
 k = (0,1,2,…) \n
 λ – Длинна волны [м]
     </string>
-    
+
     <string name="helpSto">ℓ - Длинна [м]\n
 m – Масса [кг]\n
 υ – Скорость [м/с]\n
@@ -316,5 +317,19 @@ U₃ – Задерживающее напряжение [В]\n
 W – Энергия излучения [эВ]\n
 n – Число фотонов
     </string>
+    <string name="remove_ads_p50">50 RUB</string>
+    <string name="remove_ads_p100">100 RUB</string>
+    <string name="remove_ads_p200">200 RUB</string>
+    <string name="remove_ads_p500">500 RUB</string>
+    <string name="remove_ads_p1000">1000 RUB</string>
+    <string name="itemRemoveAd">Удалить рекламу</string>
+    <string name="itemDonation">Поддержать разработчика</string>
+    <string name="donation_title">Pay What you want</string>
+    <string name="donation_comment">Надеюсь, что вам понравилось мое приложение, и вы решили поддержать меня финансово.
+        Считаю, что пользователь сам вправе решать, когда и сколько платить, поэтому предлагаю
+        выбрать цену, которую вы считаете приемлемой для отключения рекламы.</string>
+    <string name="donation_comment_after_payment">Спасибо за ваше пожертвование. Реклама отключена, мне больше нечего вам предоставить, но
+        если вы хотите ещё раз отблагодарить, буду крайне признателен.</string>
+    <string name="donationErrorText">Сервис недоступен</string>
 
 </resources>

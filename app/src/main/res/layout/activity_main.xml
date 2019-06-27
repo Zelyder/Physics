@@ -72,6 +72,7 @@
         ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
         app:layout_constraintEnd_toEndOf="parent" />
 
 

@@ -20,6 +20,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.user.physics.R;
@@ -37,6 +40,11 @@ public class TabbedActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private boolean fromSettings;
 
+
+    private InterstitialAd mInterstitialAd;
+    private int countComeBacks = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -53,6 +61,23 @@ public class TabbedActivity extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-6870351970405478/1499953855");
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -67,6 +92,8 @@ public class TabbedActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+
 
 
     }
@@ -115,11 +142,39 @@ public class TabbedActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/e/2PACX-1vSwBOKdmLDNHqNnPTZ1AZLuKRTIzsl1OxPUQUJuTRiiRw_4s2rhh-KdI8013MT07HNmpajFeMb4tQ_o/pub")));
                 fromSettings = true;
                 return true;
+            case R.id.itemRemoveAd:
+                startActivity(new Intent(this, DonationActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
+        if(!preferences.getBoolean(DonationActivity.PREFERENCES_ADS,false)){
+            comeBack();
+        }
+
+
+    }
+
+    private void showAd(){
+        if(mInterstitialAd.isLoaded()){
+            mInterstitialAd.show();
+        }
+    }
+
+    public void comeBack(){
+        if(countComeBacks >= 2){
+            countComeBacks = 0;
+            showAd();
+        }else {
+            countComeBacks++;
+        }
+    }
 
 
     public static class PlaceholderFragment extends Fragment {

@@ -217,30 +217,6 @@ public class Utilits {
         if (string.contains("Ѩ")) {
             string = string.replace("Ѩ", "");
         }
-        if (string.contains("₁")) {
-            string = string.replace("₁", "");
-        }
-        if (string.contains("₂")) {
-            string = string.replace("₂", "");
-        }
-        if (string.contains("ₘ")) {
-            string = string.replace("ₘ", "");
-        }
-        if (string.contains("ₐ")) {
-            string = string.replace("ₐ", "");
-        }
-        if (string.contains("ₖ")) {
-            string = string.replace("ₖ", "");
-        }
-        if (string.contains("ₚ")) {
-            string = string.replace("ₚ", "");
-        }
-        if (string.contains("₃")) {
-            string = string.replace("₃", "");
-        }
-        if (string.contains("ₑ")) {
-            string = string.replace("ₑ", "");
-        }
         if (string.contains("◤")) {
             string = string.replace("◤", "");
         }

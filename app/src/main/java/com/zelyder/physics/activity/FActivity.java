@@ -3,6 +3,7 @@ package com.zelyder.physics.activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -421,7 +422,10 @@ public class FActivity extends AppCompatActivity {
             builder.setPositiveButton("Выход", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    onBackPressed();
+
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
             }).create().show();
 

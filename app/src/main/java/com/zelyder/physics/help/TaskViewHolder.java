@@ -1,5 +1,6 @@
 package com.zelyder.physics.help;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -24,7 +25,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         mTitleTask = itemView.findViewById(R.id.item_tvTitle);
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
-
+        context = itemView.getContext();
 
     }
 
@@ -32,7 +33,8 @@ public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void onClick(View v) {
         Intent intent =  new Intent(v.getContext(), FActivity.class);
         intent.putExtra(FActivity.TITLE, mTitleTask.getText().toString());
-        v.getContext().startActivity(intent);
+        ((Activity) context).startActivityForResult(intent,1);
+
     }
 
     @Override
