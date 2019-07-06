@@ -168,7 +168,7 @@ public class TabbedActivity extends AppCompatActivity {
     }
 
     public void comeBack(){
-        if(countComeBacks >= 2){
+        if(countComeBacks >= 1){
             countComeBacks = 0;
             showAd();
         }else {

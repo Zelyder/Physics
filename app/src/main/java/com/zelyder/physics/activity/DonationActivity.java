@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.zelyder.user.physics.R;
 
 public class DonationActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler, View.OnClickListener {
 
+    private static final String LOG_TAG = "DonationActivity";
     Button btnDonation50, btnDonation100, btnDonation200, btnDonation500, btnDonation1000;
     TextView tvError, tvDonationComment;
     BillingProcessor bp;
@@ -35,6 +39,12 @@ public class DonationActivity extends AppCompatActivity implements BillingProces
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
 
 
@@ -90,6 +100,7 @@ public class DonationActivity extends AppCompatActivity implements BillingProces
         btnDonation200.setVisibility(View.VISIBLE);
         btnDonation500.setVisibility(View.VISIBLE);
         btnDonation1000.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -132,5 +143,20 @@ public class DonationActivity extends AppCompatActivity implements BillingProces
                 break;
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.about_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
