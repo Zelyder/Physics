@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,7 @@ public class TabCorrectList extends Fragment {
                 TabCorrectViewHolder.class, myRef.child("Список")) {
             @Override
             protected void populateViewHolder(final TabCorrectViewHolder viewHolder, String title, final int position) {
+                Log.d("LOL",title);
                 viewHolder.mTitleTask.setText(title);
                 myRef.child(title).addValueEventListener(new ValueEventListener() {
                     @Override

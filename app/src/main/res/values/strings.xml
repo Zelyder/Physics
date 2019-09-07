@@ -80,6 +80,7 @@
     <string name="retardingStress" translatable="false">U</string>
     <string name="BigOmega" translatable="false">Ω</string>
     <string name="tau" translatable="false">τ</string>
+    <string name="sigma" translatable="false">σ</string>
 
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -100,15 +101,6 @@
     <string name="pref_sw_consider_summary_off">Если вы ввели правильную формулу, вам будет зачислен полный балл. При этом неважно количество затраченных попыток.</string>
     <string name="pref_countTry">Количество попыток</string>
 
-
-
-    <string-array name="pref_array_countTry">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-    </string-array>
 
     <string name="helpStatics">J – Момент инерции [кг•м²]\n
     m – Масса [кг] \n
@@ -317,6 +309,7 @@ U₃ – Задерживающее напряжение [В]\n
 W – Энергия излучения [эВ]\n
 n – Число фотонов
     </string>
+
     <string name="remove_ads_p50">50 RUB</string>
     <string name="remove_ads_p100">100 RUB</string>
     <string name="remove_ads_p200">200 RUB</string>
@@ -331,5 +324,12 @@ n – Число фотонов
     <string name="donation_comment_after_payment">Спасибо за ваше пожертвование. Реклама отключена, мне больше нечего вам предоставить, но
         если вы хотите ещё раз отблагодарить, буду крайне признателен.</string>
     <string name="donationErrorText">Сервис недоступен</string>
+    <string-array name="pref_array_countTry">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 
 </resources>

@@ -43,6 +43,7 @@ import com.zelyder.physics.Fragments.KeyboardMagneticField;
 import com.zelyder.physics.Fragments.KeyboardMechanicalVibrations;
 import com.zelyder.physics.Fragments.KeyboardMolecularPhysics;
 import com.zelyder.physics.Fragments.KeyboardOptics;
+import com.zelyder.physics.Fragments.KeyboardPropertiesOfSteam;
 import com.zelyder.physics.Fragments.KeyboardQuantumPhysics;
 import com.zelyder.physics.Fragments.KeyboardSTO;
 import com.zelyder.physics.Fragments.KeyboardStatics;
@@ -527,6 +528,12 @@ public class FActivity extends AppCompatActivity {
                         .add(R.id.container_for_fragments, keyboardQuantumPhysics)
                         .commit();
                 break;
+            case "Свойства пара, жидкостей и твердых тел":
+                KeyboardPropertiesOfSteam keyboardPropertiesOfSteam = new KeyboardPropertiesOfSteam();
+                fragmentManager.beginTransaction()
+                        .add(R.id.container_for_fragments, keyboardPropertiesOfSteam)
+                        .commit();
+                break;
         }
     }
 
@@ -613,6 +620,12 @@ public class FActivity extends AppCompatActivity {
                 KeyboardQuantumPhysics keyboardQuantumPhysics = new KeyboardQuantumPhysics();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container_for_fragments, keyboardQuantumPhysics)
+                        .commit();
+                break;
+            case "Свойства пара, жидкостей и твердых тел":
+                KeyboardPropertiesOfSteam keyboardPropertiesOfSteam = new KeyboardPropertiesOfSteam();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container_for_fragments, keyboardPropertiesOfSteam)
                         .commit();
                 break;
         }
