@@ -20,9 +20,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.yandex.mobile.ads.AdRequest;
+import com.yandex.mobile.ads.AdRequestError;
+import com.yandex.mobile.ads.InterstitialAd;
+import com.yandex.mobile.ads.InterstitialEventListener;
 import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.user.physics.R;
@@ -41,6 +42,7 @@ public class TabbedActivity extends AppCompatActivity {
     private boolean fromSettings;
 
 
+    private AdRequest mAdRequest;
     private InterstitialAd mInterstitialAd;
     private int countComeBacks = 0;
 
@@ -61,21 +63,7 @@ public class TabbedActivity extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-6870351970405478/1499953855");
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-        mInterstitialAd.loadAd(adRequest);
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-            }
-
-        });
+        initInterstitialAd();
 
 
         // Create the adapter that will return a fragment for each of the three
@@ -96,6 +84,14 @@ public class TabbedActivity extends AppCompatActivity {
 
 
 
+    }
+    private void initInterstitialAd() {
+        mInterstitialAd = new InterstitialAd(this);
+
+        mInterstitialAd.setBlockId(getResources().getString(R.string.interstitial_ad_yandex_id));
+
+        mAdRequest = AdRequest.builder().build();
+        mInterstitialAd.setInterstitialEventListener(mInterstitialAdEventListener);
     }
 
     @Override
@@ -161,16 +157,25 @@ public class TabbedActivity extends AppCompatActivity {
 
     }
 
-    private void showAd(){
-        if(mInterstitialAd.isLoaded()){
+    private InterstitialEventListener mInterstitialAdEventListener = new InterstitialEventListener.SimpleInterstitialEventListener() {
+
+        @Override
+        public void onInterstitialLoaded() {
             mInterstitialAd.show();
+
         }
-    }
+
+        @Override
+        public void onInterstitialFailedToLoad(AdRequestError error) {
+
+        }
+    };
 
     public void comeBack(){
         if(countComeBacks >= 1){
             countComeBacks = 0;
-            showAd();
+
+            mInterstitialAd.loadAd(mAdRequest);
         }else {
             countComeBacks++;
         }
@@ -238,5 +243,10 @@ public class TabbedActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+    @Override
+    protected void onDestroy() {
+        mInterstitialAd.destroy();
+        super.onDestroy();
     }
 }

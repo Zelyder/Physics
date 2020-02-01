@@ -15,9 +15,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.yandex.mobile.ads.AdEventListener;
+import com.yandex.mobile.ads.AdRequest;
+import com.yandex.mobile.ads.AdSize;
+import com.yandex.mobile.ads.AdView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +37,7 @@ public class MainActivity extends Fragment {
     TextView tvNoConnection;
     RecyclerView recyclerView;
     private AdView mAdView;
+    private AdRequest mAdRequest;
     SharedPreferences preferences;
 
     @Override
@@ -48,12 +53,13 @@ public class MainActivity extends Fragment {
 
         mAdView = rootView.findViewById(R.id.adView);
 
+
         if(!isConnected() || preferences.getBoolean(DonationActivity.PREFERENCES_ADS, false)) {
             mAdView.setVisibility(View.GONE);
             mAdView.destroy();
         }else {
-            AdRequest adRequest = new AdRequest.Builder().build();
-            mAdView.loadAd(adRequest);
+            initBannerView();
+            refreshBannerAd();
         }
 
 
@@ -101,6 +107,25 @@ public class MainActivity extends Fragment {
 
         checkInternet();
         return rootView;
+    }
+
+    private void initBannerView() {
+        mAdView.setBlockId(getResources().getString(R.string.banner_ad_yandex_id));
+        mAdView.setAdSize(AdSize.BANNER_320x50);
+
+        mAdRequest = AdRequest.builder().build();
+        mAdView.setAdEventListener(mBannerAdEventListener);
+    }
+
+    private AdEventListener mBannerAdEventListener = new AdEventListener.SimpleAdEventListener() {
+        @Override
+        public void onAdLoaded() {
+            mAdView.setVisibility(View.VISIBLE);
+        }
+    };
+    private void refreshBannerAd() {
+        mAdView.setVisibility(View.INVISIBLE);
+        mAdView.loadAd(mAdRequest);
     }
 
     private boolean isConnected() {

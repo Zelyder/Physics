@@ -8,14 +8,14 @@ android {
         applicationId "com.zelyder.physics"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 14
-        versionName "2.1"
+        versionCode 18
+        versionName "2.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -46,4 +46,8 @@ dependencies {
     implementation 'com.github.vihtarb:tooltip:0.1.9'
     implementation 'com.github.cdflynn:crossview:v1.0.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+
+    implementation 'com.yandex.android:mobileads:2.112'
+    implementation 'com.yandex.android:mobmetricalib:3.8.0'
+    implementation 'com.android.support:multidex:1.0.3'
 }
