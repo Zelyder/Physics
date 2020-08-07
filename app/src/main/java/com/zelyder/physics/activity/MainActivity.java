@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +32,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.zelyder.physics.help.TaskViewHolder;
 import com.zelyder.user.physics.R;
+
+import java.util.Objects;
+
 public class MainActivity extends Fragment {
 
-    private static final String TAG = "MainActivity";
     private DatabaseReference myRef;
     ProgressBar progressBar;
     TextView tvNoConnection;
@@ -42,7 +47,7 @@ public class MainActivity extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -60,10 +65,20 @@ public class MainActivity extends Fragment {
         }else {
             initBannerView();
             refreshBannerAd();
+
+            final Handler handler = new Handler();
+            final long delay = 30000L; //milliseconds
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(mAdView.getVisibility() == View.VISIBLE){
+                        refreshBannerAd();
+                    }
+                    handler.postDelayed(this, delay);
+                }
+            }, delay);
         }
-
-
-
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         progressBar = rootView.findViewById(R.id.progressBar);
@@ -81,14 +96,14 @@ public class MainActivity extends Fragment {
                 viewHolder.mTitleTask.setText(title);
                 myRef.child(title).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         viewHolder.setTipText(dataSnapshot.getChildrenCount() + "");
                         viewHolder.setContext(getContext());
                         checkInternet();
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(getContext(),"Что-то пошло не так. Попробуйте обновить приложение",
                                 Toast.LENGTH_LONG).show();
                     }
@@ -97,20 +112,12 @@ public class MainActivity extends Fragment {
         };
         recyclerView.setAdapter(adapter);
 
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                //toolTip.removeAllViewsInLayout();
-            }
-        });
-
         checkInternet();
         return rootView;
     }
 
     private void initBannerView() {
-        mAdView.setBlockId(getResources().getString(R.string.banner_ad_yandex_id));
+        mAdView.setBlockId(getResources().getString(R.string.banner_ad_yandex_id_meditation));
         mAdView.setAdSize(AdSize.BANNER_320x50);
 
         mAdRequest = AdRequest.builder().build();
@@ -130,17 +137,17 @@ public class MainActivity extends Fragment {
 
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager)
-                getActivity().getSystemService(Service.CONNECTIVITY_SERVICE);
+                Objects.requireNonNull(getActivity()).getSystemService(Service.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             NetworkInfo info = connectivityManager.getActiveNetworkInfo();
-            if (info != null && info.getState() == NetworkInfo.State.CONNECTED) {
-                return true;
-            }
+            return info != null && info.getState() == NetworkInfo.State.CONNECTED;
         }
         return false;
     }
     private void checkInternet() {
-        if(recyclerView.getAdapter().getItemCount() == 0 && !isConnected()){
+        Log.d("LOL", "count " + String.valueOf(Objects.requireNonNull(recyclerView.getAdapter()).getItemCount()) +
+                "\n connect " + !isConnected());
+        if(Objects.requireNonNull(recyclerView.getAdapter()).getItemCount() == 0 && !isConnected()){
             progressBar.setVisibility(View.VISIBLE);
             tvNoConnection.setVisibility(View.VISIBLE);
         }else {

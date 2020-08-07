@@ -88,7 +88,7 @@ public class TabbedActivity extends AppCompatActivity {
     private void initInterstitialAd() {
         mInterstitialAd = new InterstitialAd(this);
 
-        mInterstitialAd.setBlockId(getResources().getString(R.string.interstitial_ad_yandex_id));
+        mInterstitialAd.setBlockId(getResources().getString(R.string.interstitial_ad_yandex_id_meditation));
 
         mAdRequest = AdRequest.builder().build();
         mInterstitialAd.setInterstitialEventListener(mInterstitialAdEventListener);
@@ -203,7 +203,9 @@ public class TabbedActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
             TextView textView =  rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            if (getArguments() != null) {
+                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            }
             return rootView;
         }
     }

@@ -8,8 +8,8 @@ android {
         applicationId "com.zelyder.physics"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 18
-        versionName "2.3"
+        versionCode 20
+        versionName "2.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -47,7 +47,9 @@ dependencies {
     implementation 'com.github.cdflynn:crossview:v1.0.1'
     implementation 'com.anjlab.android.iab.v3:library:1.0.44'
 
-    implementation 'com.yandex.android:mobileads:2.112'
-    implementation 'com.yandex.android:mobmetricalib:3.8.0'
+    implementation 'com.yandex.android:mobileads:2.142'
+    implementation 'com.yandex.android:mobmetricalib:3.13.1'
+    implementation 'com.yandex.ads.mediation:mobileads-admob:1.8.0'
+    implementation 'com.google.android.gms:play-services-ads:16.0.1'
     implementation 'com.android.support:multidex:1.0.3'
 }

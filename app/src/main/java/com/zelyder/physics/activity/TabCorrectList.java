@@ -5,6 +5,7 @@ import android.app.Service;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.zelyder.physics.help.TabCorrectViewHolder;
 import com.zelyder.user.physics.R;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,14 +63,14 @@ public class TabCorrectList extends Fragment {
                 viewHolder.mTitleTask.setText(title);
                 myRef.child(title).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         viewHolder.setTipText(dataSnapshot.getChildrenCount() + "");
                         viewHolder.setContext(getContext());
                         checkInternet();
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
                 });
@@ -75,30 +78,20 @@ public class TabCorrectList extends Fragment {
         };
         recyclerView.setAdapter(adapter);
 
-        recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                //toolTip.removeAllViewsInLayout();ViewTooltip
-            }
-        });
-
         checkInternet();
         return rootView;
     }
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager)
-                getActivity().getSystemService(Service.CONNECTIVITY_SERVICE);
+                Objects.requireNonNull(getActivity()).getSystemService(Service.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             NetworkInfo info = connectivityManager.getActiveNetworkInfo();
-            if (info != null && info.getState() == NetworkInfo.State.CONNECTED) {
-                return true;
-            }
+            return info != null && info.getState() == NetworkInfo.State.CONNECTED;
         }
         return false;
     }
     private void checkInternet() {
-        if(recyclerView.getAdapter().getItemCount() == 0 && !isConnected()){
+        if(Objects.requireNonNull(recyclerView.getAdapter()).getItemCount() == 0 && !isConnected()){
             progressBar.setVisibility(View.VISIBLE);
             tvNoConnection.setVisibility(View.VISIBLE);
         }else {
