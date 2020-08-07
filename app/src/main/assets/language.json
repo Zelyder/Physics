@@ -1,0 +1,82 @@
+[
+  {
+    "idName": "category.kinematics",
+    "engName": "Kinematics",
+    "rusName": "Кинематика"
+  },
+  {
+    "idName": "category.dynamics",
+    "engName": "Dynamics",
+    "rusName": "Динамика"
+  },
+  {
+    "idName": "category.statics",
+    "engName": "Statics",
+    "rusName": "Статика"
+  },
+  {
+    "idName": "category.hydrostatics",
+    "engName": "Hydrostatics",
+    "rusName": "Гидростатика"
+  },
+  {
+    "idName": "category.wpe",
+    "engName": "Work, power, energy",
+    "rusName": "Работа, мощность, энергия"
+  },
+  {
+    "idName": "category.molecular_physics",
+    "engName": "Molecular physics",
+    "rusName": "Молекулярная физика"
+  },
+  {
+    "idName": "category.thermodynamics",
+    "engName": "Thermodynamics",
+    "rusName": "Термодинамика"
+  },
+  {
+    "idName": "category.electrostatics",
+    "engName": "Electrostatics",
+    "rusName": "Электростатика"
+  },
+  {
+    "idName": "category.laws_of_the_direct_current",
+    "engName": "Laws of the direct current",
+    "rusName": "Законы постоянного тока"
+  },
+  {
+    "idName": "category.magnetic_field",
+    "engName": "Magnetic field, electromagnetic induction",
+    "rusName": "Магнитное поле, электромагнитная индукция"
+  },
+  {
+    "idName": "category.mechanical_oscillation",
+    "engName": "Mechanical oscillation and waves",
+    "rusName": "Механические колебания и волны"
+  },
+  {
+    "idName": "category.mechanical_radiation",
+    "engName": "Electromagnetic radiation and waves",
+    "rusName": "Электромагнитные колебания и волны"
+  },
+  {
+    "idName": "category.optics",
+    "engName": "Optics",
+    "rusName": "Оптика"
+  },
+  {
+    "idName": "category.sto",
+    "engName": "Special Theory of Relativity (STO)",
+    "rusName": "Специальная теория относительности (СТО)"
+  },
+  {
+    "idName": "category.quantum_physics",
+    "engName": "Quantum Physics",
+    "rusName": "Квантовая физика"
+  },
+  {
+    "idName": "category.properties_of_steam",
+    "engName": "Properties of steam, liquids and solids",
+    "rusName": "Свойства пара, жидкостей и твердых тел"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "idCategory":1,
+    "idName": "category.kinematics"
+  },
+  {
+    "idCategory":2,
+    "idName": "category.dynamics"
+  },
+  {
+    "idCategory":3,
+    "idName": "category.statics"
+  },
+  {
+    "idCategory":4,
+    "idName": "category.hydrostatics"
+  },
+  {
+    "idCategory":5,
+    "idName": "category.wpe"
+  },
+  {
+    "idCategory":6,
+    "idName": "category.molecular_physics"
+  },
+  {
+    "idCategory":7,
+    "idName": "category.thermodynamics"
+  },
+  {
+    "idCategory":8,
+    "idName": "category.electrostatics"
+  },
+  {
+    "idCategory":9,
+    "idName": "category.laws_of_the_direct_current"
+  },
+  {
+    "idCategory":10,
+    "idName": "category.magnetic_field"
+  },
+  {
+    "idCategory":11,
+    "idName": "category.mechanical_oscillation"
+  },
+  {
+    "idCategory":12,
+    "idName": "category.mechanical_radiation"
+  },
+  {
+    "idCategory":13,
+    "idName": "category.optics"
+  },
+  {
+    "idCategory":14,
+    "idName": "category.sto"
+  },
+  {
+    "idCategory":15,
+    "idName": "category.quantum_physics"
+  },
+  {
+    "idCategory":16,
+    "idName": "category.properties_of_steam"
+  }
+]
