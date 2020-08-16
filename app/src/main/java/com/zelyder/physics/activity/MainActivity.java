@@ -61,7 +61,6 @@ public class MainActivity extends Fragment {
 
         if(!isConnected() || preferences.getBoolean(DonationActivity.PREFERENCES_ADS, false)) {
             mAdView.setVisibility(View.GONE);
-            mAdView.destroy();
         }else {
             initBannerView();
             refreshBannerAd();

@@ -1,0 +1,8 @@
+[
+  {
+    "idFormula":1,
+    "idCategory": 1,
+    "idName": "formula.square_difference",
+    "formula": "$$a^2 - b^2 = (a + b)(a - b)$$"
+  }
+]
