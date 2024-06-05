@@ -15,8 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.zelyder.physics.activity.DonationActivity"
-            android:screenOrientation="portrait"/>
         <activity
             android:name="com.zelyder.physics.activity.FActivity"
             android:screenOrientation="portrait"
@@ -24,6 +22,7 @@
         <activity android:name="com.zelyder.physics.activity.AboutActivity" />
         <activity
             android:name="com.zelyder.physics.activity.TabbedActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,13 +35,6 @@
             android:name="com.zelyder.physics.activity.SettingsActivity"
             android:label="@string/action_settings" />
         <activity android:name="com.zelyder.physics.activity.HelpActivity" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6870351970405478~3793718397" />
     </application>
 
 </manifest>

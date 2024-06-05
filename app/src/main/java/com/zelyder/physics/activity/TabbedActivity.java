@@ -19,11 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.yandex.mobile.ads.AdRequest;
-import com.yandex.mobile.ads.AdRequestError;
-import com.yandex.mobile.ads.InterstitialAd;
-import com.yandex.mobile.ads.InterstitialEventListener;
 import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.user.physics.R;
@@ -33,17 +28,12 @@ import io.realm.RealmResults;
 
 public class TabbedActivity extends AppCompatActivity {
 
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private Realm mRealm;
 
     private ViewPager mViewPager;
     private SharedPreferences preferences;
     private boolean fromSettings;
-
-
-    private AdRequest mAdRequest;
-    private InterstitialAd mInterstitialAd;
     private int countComeBacks = 0;
 
 
@@ -63,9 +53,6 @@ public class TabbedActivity extends AppCompatActivity {
         Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        initInterstitialAd();
-
-
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -84,14 +71,6 @@ public class TabbedActivity extends AppCompatActivity {
 
 
 
-    }
-    private void initInterstitialAd() {
-        mInterstitialAd = new InterstitialAd(this);
-
-        mInterstitialAd.setBlockId(getResources().getString(R.string.interstitial_ad_yandex_id_meditation));
-
-        mAdRequest = AdRequest.builder().build();
-        mInterstitialAd.setInterstitialEventListener(mInterstitialAdEventListener);
     }
 
     @Override
@@ -138,82 +117,11 @@ public class TabbedActivity extends AppCompatActivity {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/e/2PACX-1vSwBOKdmLDNHqNnPTZ1AZLuKRTIzsl1OxPUQUJuTRiiRw_4s2rhh-KdI8013MT07HNmpajFeMb4tQ_o/pub")));
                 fromSettings = true;
                 return true;
-            case R.id.itemRemoveAd:
-                startActivity(new Intent(this, DonationActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) {
-            return;
-        }
-        if(!preferences.getBoolean(DonationActivity.PREFERENCES_ADS,false)){
-            comeBack();
-        }
-
-
-    }
-
-    private InterstitialEventListener mInterstitialAdEventListener = new InterstitialEventListener.SimpleInterstitialEventListener() {
-
-        @Override
-        public void onInterstitialLoaded() {
-            mInterstitialAd.show();
-
-        }
-
-        @Override
-        public void onInterstitialFailedToLoad(AdRequestError error) {
-
-        }
-    };
-
-    public void comeBack(){
-        if(countComeBacks >= 1){
-            countComeBacks = 0;
-
-            mInterstitialAd.loadAd(mAdRequest);
-        }else {
-            countComeBacks++;
-        }
-    }
-
-
-    public static class PlaceholderFragment extends Fragment {
-
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
-            TextView textView =  rootView.findViewById(R.id.section_label);
-            if (getArguments() != null) {
-                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            }
-            return rootView;
-        }
-    }
-
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         SectionsPagerAdapter(FragmentManager fm) {
@@ -246,9 +154,35 @@ public class TabbedActivity extends AppCompatActivity {
             return null;
         }
     }
-    @Override
-    protected void onDestroy() {
-        mInterstitialAd.destroy();
-        super.onDestroy();
+
+
+    public static class PlaceholderFragment extends Fragment {
+
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_tabbed, container, false);
+            TextView textView =  rootView.findViewById(R.id.section_label);
+            if (getArguments() != null) {
+                textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            }
+            return rootView;
+        }
     }
+
 }
+

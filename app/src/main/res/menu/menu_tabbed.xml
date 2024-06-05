@@ -20,11 +20,5 @@
         android:title="@string/itemFavorites"
         android:icon="@drawable/ic_star_white_24dp"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/itemRemoveAd"
-        android:title="@string/itemRemoveAd"
-        android:icon="@drawable/ic_remove_ad"
-        app:showAsAction="ifRoom"
 
-        />
 </menu>

@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -18,11 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.yandex.mobile.ads.AdEventListener;
-import com.yandex.mobile.ads.AdRequest;
-import com.yandex.mobile.ads.AdSize;
-import com.yandex.mobile.ads.AdView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -41,8 +35,6 @@ public class MainActivity extends Fragment {
     ProgressBar progressBar;
     TextView tvNoConnection;
     RecyclerView recyclerView;
-    private AdView mAdView;
-    private AdRequest mAdRequest;
     SharedPreferences preferences;
 
     @Override
@@ -55,29 +47,6 @@ public class MainActivity extends Fragment {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
         myRef.keepSynced(true);
-
-        mAdView = rootView.findViewById(R.id.adView);
-
-
-        if(!isConnected() || preferences.getBoolean(DonationActivity.PREFERENCES_ADS, false)) {
-            mAdView.setVisibility(View.GONE);
-        }else {
-            initBannerView();
-            refreshBannerAd();
-
-            final Handler handler = new Handler();
-            final long delay = 30000L; //milliseconds
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if(mAdView.getVisibility() == View.VISIBLE){
-                        refreshBannerAd();
-                    }
-                    handler.postDelayed(this, delay);
-                }
-            }, delay);
-        }
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
         progressBar = rootView.findViewById(R.id.progressBar);
@@ -114,26 +83,6 @@ public class MainActivity extends Fragment {
         checkInternet();
         return rootView;
     }
-
-    private void initBannerView() {
-        mAdView.setBlockId(getResources().getString(R.string.banner_ad_yandex_id_meditation));
-        mAdView.setAdSize(AdSize.BANNER_320x50);
-
-        mAdRequest = AdRequest.builder().build();
-        mAdView.setAdEventListener(mBannerAdEventListener);
-    }
-
-    private AdEventListener mBannerAdEventListener = new AdEventListener.SimpleAdEventListener() {
-        @Override
-        public void onAdLoaded() {
-            mAdView.setVisibility(View.VISIBLE);
-        }
-    };
-    private void refreshBannerAd() {
-        mAdView.setVisibility(View.INVISIBLE);
-        mAdView.loadAd(mAdRequest);
-    }
-
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 Objects.requireNonNull(getActivity()).getSystemService(Service.CONNECTIVITY_SERVICE);
@@ -153,23 +102,5 @@ public class MainActivity extends Fragment {
             progressBar.setVisibility(View.GONE);
             tvNoConnection.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    public void onDestroy() {
-        mAdView.destroy();
-        super.onDestroy();
-    }
-
-    @Override
-    public void onPause() {
-        mAdView.pause();
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        mAdView.resume();
-        super.onResume();
     }
 }
