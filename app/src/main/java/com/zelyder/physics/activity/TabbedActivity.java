@@ -1,5 +1,6 @@
 package com.zelyder.physics.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -28,18 +29,13 @@ import io.realm.RealmResults;
 
 public class TabbedActivity extends AppCompatActivity {
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
     private Realm mRealm;
 
-    private ViewPager mViewPager;
-    private SharedPreferences preferences;
     private boolean fromSettings;
-    private int countComeBacks = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if(preferences.getBoolean("cb_pref_dark_style", false)){
             setTheme(R.style.darkTheme_NoActionBar);
@@ -55,10 +51,10 @@ public class TabbedActivity extends AppCompatActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager =  findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout =  findViewById(R.id.tabs);
@@ -92,6 +88,7 @@ public class TabbedActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -122,7 +119,7 @@ public class TabbedActivity extends AppCompatActivity {
         }
     }
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    public static class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
