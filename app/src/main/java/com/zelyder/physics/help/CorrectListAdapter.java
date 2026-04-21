@@ -1,8 +1,8 @@
 package com.zelyder.physics.help;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,7 @@ import com.zelyder.physics.Fragments.DoubleFractionView;
 import com.zelyder.physics.Fragments.FractionView;
 import com.zelyder.physics.Fragments.STOFractionView;
 import com.zelyder.physics.model.Formula;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 import java.util.ArrayList;
 
@@ -121,7 +121,7 @@ public class CorrectListAdapter extends RecyclerView.Adapter<CorrectListAdapter.
         return listData.size();
     }
 
-    class Holder extends RecyclerView.ViewHolder {
+    static class Holder extends RecyclerView.ViewHolder {
 
         private TextView title;
         private FractionView fractionView;

@@ -7,7 +7,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 public class SettingsFragment extends PreferenceFragment {
 

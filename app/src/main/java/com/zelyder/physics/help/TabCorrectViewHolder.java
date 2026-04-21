@@ -3,7 +3,7 @@ package com.zelyder.physics.help;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.tooltip.Tooltip;
 import com.zelyder.physics.activity.CorrectListActivity;
 import com.zelyder.physics.activity.FActivity;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 
 public class TabCorrectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {

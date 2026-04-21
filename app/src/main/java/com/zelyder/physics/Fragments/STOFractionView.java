@@ -1,15 +1,15 @@
 package com.zelyder.physics.Fragments;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 public class STOFractionView extends LinearLayout {
     String fraction;

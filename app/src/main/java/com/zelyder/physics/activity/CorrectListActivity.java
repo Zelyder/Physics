@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,10 +19,11 @@ import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.help.CorrectListAdapter;
 import com.zelyder.physics.help.CorrectListCallback;
 import com.zelyder.physics.help.OnGetDataListener;
+import com.zelyder.physics.help.WrapContentLinearLayoutManager;
 import com.zelyder.physics.model.DelFormula;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.physics.model.Formula;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -73,7 +73,7 @@ public class CorrectListActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(DataSnapshot data) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(CorrectListActivity.this));
+                recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(CorrectListActivity.this));
                 recyclerView.setHasFixedSize(true);
 
                 Log.d("LOL", "listFormulas = " + listFormulas.size());
@@ -169,12 +169,12 @@ public class CorrectListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.itemHelp:
-                Intent intent = new Intent(this, HelpActivity.class);
-                intent.putExtra(FActivity.TITLE, getIntent().getStringExtra(FActivity.TITLE));
-                startActivity(intent);
-                break;
+        int id = item.getItemId();
+        if (id == R.id.itemHelp) {
+            Intent intent = new Intent(this, HelpActivity.class);
+            intent.putExtra(FActivity.TITLE, getIntent().getStringExtra(FActivity.TITLE));
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

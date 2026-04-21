@@ -1,8 +1,8 @@
 package com.zelyder.physics.Fragments;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.zelyder.physics.activity.FActivity;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,19 +85,14 @@ public class KeyboardEnergy extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnEnergyDelete:
-                fActivity.delCh();
-                break;
-            case R.id.btnEnergyOk:
-                fActivity.clickBtnOk();
-                break;
-            case R.id.btnEnergyCos_a:
-                fActivity.insertChar("#cosα#");
-                break;
-            default:
-                fActivity.insertChar(((Button) v).getText().toString());
-                break;
+        if (v.getId() == R.id.btnEnergyDelete) {
+            fActivity.delCh();
+        } else if (v.getId() == R.id.btnEnergyOk) {
+            fActivity.clickBtnOk();
+        } else if (v.getId() == R.id.btnEnergyCos_a) {
+            fActivity.insertChar("#cosα#");
+        } else {
+            fActivity.insertChar(((Button) v).getText().toString());
         }
     }
 }

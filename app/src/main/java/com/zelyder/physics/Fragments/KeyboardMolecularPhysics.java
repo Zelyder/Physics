@@ -2,7 +2,7 @@ package com.zelyder.physics.Fragments;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.zelyder.physics.activity.FActivity;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -86,19 +86,14 @@ public class KeyboardMolecularPhysics extends Fragment implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnMolecularDelete:
-                fActivity.delCh();
-                break;
-            case R.id.btnMolecularOk:
-                fActivity.clickBtnOk();
-                break;
-            case R.id.btnMolecularConst:
-                fActivity.insertChar("#const#");
-                break;
-            default:
-                fActivity.insertChar(((Button) v).getText().toString());
-                break;
+        if (v.getId() == R.id.btnMolecularDelete) {
+            fActivity.delCh();
+        } else if (v.getId() == R.id.btnMolecularOk) {
+            fActivity.clickBtnOk();
+        } else if (v.getId() == R.id.btnMolecularConst) {
+            fActivity.insertChar("#const#");
+        } else {
+            fActivity.insertChar(((Button) v).getText().toString());
         }
     }
 }

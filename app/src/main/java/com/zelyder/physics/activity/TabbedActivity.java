@@ -1,18 +1,10 @@
 package com.zelyder.physics.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,9 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.zelyder.physics.PhysicsApp;
 import com.zelyder.physics.model.Favorite;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -88,50 +89,48 @@ public class TabbedActivity extends AppCompatActivity {
         return true;
     }
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.itemAbout:
-                Intent intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.itemFavorites:
-                RealmResults<Favorite> favorites = mRealm.where(Favorite.class).findAll();
-                if(!favorites.isEmpty()) {
-                    Intent intent1 = new Intent(this, FActivity.class);
-                    intent1.putExtra(FActivity.BOOL, true);
-                    startActivity(intent1);
-                }else {
-                    Toast.makeText(this,"Нет избранных формул",Toast.LENGTH_SHORT).show();
-                }
-                return true;
-            case R.id.itemSettings:
-                startActivity(new Intent(this, SettingsActivity.class));
-                fromSettings = true;
-                return true;
-            case R.id.itemPrivacy_policy:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/e/2PACX-1vSwBOKdmLDNHqNnPTZ1AZLuKRTIzsl1OxPUQUJuTRiiRw_4s2rhh-KdI8013MT07HNmpajFeMb4tQ_o/pub")));
-                fromSettings = true;
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        if (id == R.id.itemAbout) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.itemFavorites) {
+            RealmResults<Favorite> favorites = mRealm.where(Favorite.class).findAll();
+            if (!favorites.isEmpty()) {
+                Intent intent1 = new Intent(this, FActivity.class);
+                intent1.putExtra(FActivity.BOOL, true);
+                startActivity(intent1);
+            } else {
+                Toast.makeText(this, "Нет избранных формул", Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        } else if (id == R.id.itemSettings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            fromSettings = true;
+            return true;
+        } else if (id == R.id.itemPrivacy_policy) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/e/2PACX-1vSwBOKdmLDNHqNnPTZ1AZLuKRTIzsl1OxPUQUJuTRiiRw_4s2rhh-KdI8013MT07HNmpajFeMb4tQ_o/pub")));
+            fromSettings = true;
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     public static class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        @SuppressWarnings("deprecation")
         SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         @Override
         public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return new MainActivity();
-                case 1:
-                    return new TabCorrectList();
+            if (position == 0) {
+                return new MainActivity();
+            } else if (position == 1) {
+                return new TabCorrectList();
             }
             return null;
         }
@@ -142,11 +141,10 @@ public class TabbedActivity extends AppCompatActivity {
         }
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Тест";
-                case 1:
-                    return "Правильные формулы";
+            if (position == 0) {
+                return "Тест";
+            } else if (position == 1) {
+                return "Правильные формулы";
             }
             return null;
         }
@@ -182,4 +180,3 @@ public class TabbedActivity extends AppCompatActivity {
     }
 
 }
-

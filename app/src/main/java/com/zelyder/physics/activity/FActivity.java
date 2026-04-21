@@ -1,18 +1,18 @@
 package com.zelyder.physics.activity;
 
 import android.app.AlertDialog;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -21,7 +21,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +54,7 @@ import com.zelyder.physics.help.Utilits;
 import com.zelyder.physics.model.DelFormula;
 import com.zelyder.physics.model.Favorite;
 import com.zelyder.physics.model.Formula;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -391,10 +391,10 @@ public class FActivity extends AppCompatActivity {
             PieDataSet pieDataSet = new PieDataSet(entries, "");
             pieDataSet.setSliceSpace(2f);
             pieDataSet.setValueTextSize(10f);
-            pieDataSet.setValueFormatter(new IValueFormatter() {
+            pieDataSet.setValueFormatter(new ValueFormatter() {
                 @Override
-                public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
-                    return String.valueOf((int)value);
+                public String getFormattedValue(float value) {
+                    return String.valueOf((int) value);
                 }
             });
             PieData pieData = new PieData(pieDataSet);
@@ -413,7 +413,7 @@ public class FActivity extends AppCompatActivity {
             dis.setText("");
             pieChart.setDescription(dis);
             pieChart.setEntryLabelColor((getResources().getColor(R.color.colorPieText)));
-            pieChart.animateY(1000, Easing.EasingOption.EaseInOutCubic);
+            pieChart.animateY(1000, Easing.EaseInOutCubic);
             pieChart.setData(pieData);
             pieChart.invalidate();
 
@@ -436,7 +436,7 @@ public class FActivity extends AppCompatActivity {
     }
 
     private void setUpKeyboard() {
-        FragmentManager fragmentManager = getFragmentManager();
+        androidx.fragment.app.FragmentManager fragmentManager = getSupportFragmentManager();
         String section;
         if (isFavorite) {
             section = listFavorite.get(formulaId).getSection();
@@ -538,7 +538,7 @@ public class FActivity extends AppCompatActivity {
     }
 
     private void replaceKeyboard() {
-        FragmentManager fragmentManager = getFragmentManager();
+        androidx.fragment.app.FragmentManager fragmentManager = getSupportFragmentManager();
         setTitle(listFavorite.get(formulaId).getSection());
         switch (listFavorite.get(formulaId).getSection()) {
             case "Кинематика":

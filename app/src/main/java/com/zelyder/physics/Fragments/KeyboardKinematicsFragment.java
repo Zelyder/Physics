@@ -1,7 +1,7 @@
 package com.zelyder.physics.Fragments;
 
 
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.zelyder.physics.activity.FActivity;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 
 /**
@@ -88,16 +88,12 @@ public class KeyboardKinematicsFragment extends Fragment implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnKinematicsDelete:
-                fActivity.delCh();
-                break;
-            case R.id.btnKinematicsOk:
-                fActivity.clickBtnOk();
-                break;
-            default:
-                fActivity.insertChar(((Button) v).getText().toString());
-                break;
+        if (v.getId() == R.id.btnKinematicsDelete) {
+            fActivity.delCh();
+        } else if (v.getId() == R.id.btnKinematicsOk) {
+            fActivity.clickBtnOk();
+        } else {
+            fActivity.insertChar(((Button) v).getText().toString());
         }
     }
 }

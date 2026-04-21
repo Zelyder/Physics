@@ -5,10 +5,9 @@ import android.app.Service;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +16,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.zelyder.physics.help.TabCorrectViewHolder;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
+import com.zelyder.physics.help.WrapContentLinearLayoutManager;
 
 import java.util.Objects;
 
@@ -36,6 +37,7 @@ public class TabCorrectList extends Fragment {
     ProgressBar progressBar;
     TextView tvNoConnection;
     RecyclerView recyclerView;
+    private FirebaseRecyclerAdapter<String, TabCorrectViewHolder> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,15 +52,16 @@ public class TabCorrectList extends Fragment {
         progressBar = rootView.findViewById(R.id.correct_progressBar);
         tvNoConnection = rootView.findViewById(R.id.correct_tvNoConnection);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setLayoutManager(new WrapContentLinearLayoutManager(rootView.getContext()));
         recyclerView.setHasFixedSize(true);
 
-        final FirebaseRecyclerAdapter<String, TabCorrectViewHolder> adapter;
+        FirebaseRecyclerOptions<String> options = new FirebaseRecyclerOptions.Builder<String>()
+                .setQuery(myRef.child("Список"), String.class)
+                .build();
 
-        adapter = new FirebaseRecyclerAdapter<String, TabCorrectViewHolder>(String.class, R.layout.item,
-                TabCorrectViewHolder.class, myRef.child("Список")) {
+        adapter = new FirebaseRecyclerAdapter<String, TabCorrectViewHolder>(options) {
             @Override
-            protected void populateViewHolder(final TabCorrectViewHolder viewHolder, String title, final int position) {
+            protected void onBindViewHolder(@NonNull final TabCorrectViewHolder viewHolder, int position, @NonNull String title) {
                 Log.d("LOL",title);
                 viewHolder.mTitleTask.setText(title);
                 myRef.child(title).addValueEventListener(new ValueEventListener() {
@@ -75,15 +78,40 @@ public class TabCorrectList extends Fragment {
                     }
                 });
             }
+
+            @NonNull
+            @Override
+            public TabCorrectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item, parent, false);
+                return new TabCorrectViewHolder(view);
+            }
         };
         recyclerView.setAdapter(adapter);
 
         checkInternet();
         return rootView;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adapter != null) {
+            adapter.startListening();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (adapter != null) {
+            adapter.stopListening();
+        }
+    }
+
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager)
-                Objects.requireNonNull(getActivity()).getSystemService(Service.CONNECTIVITY_SERVICE);
+                requireActivity().getSystemService(Service.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             NetworkInfo info = connectivityManager.getActiveNetworkInfo();
             return info != null && info.getState() == NetworkInfo.State.CONNECTED;

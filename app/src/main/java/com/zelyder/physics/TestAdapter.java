@@ -1,7 +1,7 @@
 package com.zelyder.physics;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.zelyder.physics.Fragments.FractionView;
 import com.zelyder.physics.model.Formula;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 import java.util.ArrayList;
 
@@ -40,13 +40,13 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.PersonViewHold
     }
 
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    public class PersonViewHolder extends RecyclerView.ViewHolder{
-        private TextView title;
-        private FractionView fractionView;
+    public static class PersonViewHolder extends RecyclerView.ViewHolder{
+        private final TextView title;
+        private final FractionView fractionView;
 
         public PersonViewHolder(@NonNull View itemView) {
             super(itemView);

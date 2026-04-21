@@ -2,7 +2,7 @@ package com.zelyder.physics.Fragments;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.zelyder.physics.activity.FActivity;
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,16 +69,12 @@ public class KeyboardSTO extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnSTODelete:
-                fActivity.delCh();
-                break;
-            case R.id.btnSTOOk:
-                fActivity.clickBtnOk();
-                break;
-            default:
-                fActivity.insertChar(((Button) v).getText().toString());
-                break;
+        if (v.getId() == R.id.btnSTODelete) {
+            fActivity.delCh();
+        } else if (v.getId() == R.id.btnSTOOk) {
+            fActivity.clickBtnOk();
+        } else {
+            fActivity.insertChar(((Button) v).getText().toString());
         }
     }
 }

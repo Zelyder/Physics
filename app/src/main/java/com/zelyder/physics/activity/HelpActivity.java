@@ -3,13 +3,13 @@ package com.zelyder.physics.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.zelyder.user.physics.R;
+import com.zelyder.physics.R;
 
 public class HelpActivity extends AppCompatActivity {
 
