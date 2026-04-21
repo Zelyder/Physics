@@ -113,7 +113,7 @@ public class MainActivity extends Fragment {
 
     private boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager)
-                Objects.requireNonNull(getActivity()).getSystemService(Service.CONNECTIVITY_SERVICE);
+                requireActivity().getSystemService(Service.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             NetworkInfo info = connectivityManager.getActiveNetworkInfo();
             return info != null && info.getState() == NetworkInfo.State.CONNECTED;
